@@ -6,13 +6,14 @@ import { Select } from "@/components/ui/select";
 import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Search, Upload, Briefcase, ChevronRight } from "lucide-react";
+import Image from "next/image";
 
 export function NewLayout() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
       <header className="bg-white shadow-sm sticky top-0 z-10">
         <div className="container mx-auto px-4 py-3 flex justify-between items-center">
-          <img
+          <Image
             src="/placeholder.svg?height=40&width=150"
             alt="Red Letter Jobs Logo"
             className="h-8"
@@ -126,7 +127,7 @@ export function NewLayout() {
                     variant="outline"
                     className="h-auto py-4 justify-start"
                   >
-                    <img
+                    <Image
                       src="/placeholder.svg?height=24&width=24"
                       alt=""
                       className="mr-3"
@@ -183,7 +184,7 @@ export function NewLayout() {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div className="md:col-span-2">
-              <img
+              <Image
                 src="/placeholder.svg?height=40&width=150"
                 alt="Red Letter Jobs Logo"
                 className="h-8 mb-4"
@@ -199,7 +200,7 @@ export function NewLayout() {
                       href="#"
                       className="text-gray-400 hover:text-white"
                     >
-                      <img
+                      <Image
                         src={`/placeholder.svg?text=${social}&height=24&width=24`}
                         alt={social}
                         className="h-6 w-6"

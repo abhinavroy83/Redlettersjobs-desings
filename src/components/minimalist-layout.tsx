@@ -2,16 +2,16 @@
 
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { Select } from "@/components/ui/select"
 import { Card, CardContent } from "@/components/ui/card"
 import { Search, ArrowRight, Menu } from "lucide-react"
+import Image from "next/image"
 
 export function MinimalistLayout() {
   return (
     <div className="min-h-screen bg-gray-50">
       <header className="bg-white border-b">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <img src="/placeholder.svg?height=40&width=150" alt="Red Letter Jobs Logo" className="h-8" />
+          <Image src="/placeholder.svg?height=40&width=150" alt="Red Letter Jobs Logo" className="h-8" />
           <nav className="hidden md:block">
             <ul className="flex space-x-8">
               {["Jobs", "Employers", "Resources", "About", "Contact"].map((item) => (
@@ -106,12 +106,12 @@ export function MinimalistLayout() {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div className="md:col-span-2">
-              <img src="/placeholder.svg?height=40&width=150" alt="Red Letter Jobs Logo" className="h-8 mb-4" />
+              <Image src="/placeholder.svg?height=40&width=150" alt="Red Letter Jobs Logo" className="h-8 mb-4" />
               <p className="text-sm mb-4">Connecting Christians with meaningful career opportunities in ministry and non-profit sectors.</p>
               <div className="flex space-x-4">
                 {['facebook', 'twitter', 'instagram', 'linkedin'].map((social) => (
                   <a key={social} href="#" className="text-gray-400 hover:text-white">
-                    <img src={`/placeholder.svg?text=${social}&height=24&width=24`} alt={social} className="h-6 w-6" />
+                    <Image src={`/placeholder.svg?text=${social}&height=24&width=24`} alt={social} className="h-6 w-6" />
                   </a>
                 ))}
               </div>

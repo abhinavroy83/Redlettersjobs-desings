@@ -14,6 +14,7 @@ import {
   Menu,
 } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 export function ModernDynamicLayout() {
   return (
@@ -21,7 +22,7 @@ export function ModernDynamicLayout() {
       <header className="bg-white shadow-sm sticky top-0 z-10">
         <div className="container mx-auto px-4 py-4">
           <div className="flex justify-between items-center">
-            <img
+            <Image
               src="/placeholder.svg?height=40&width=150"
               alt="Red Letter Jobs Logo"
               className="h-8"
@@ -214,7 +215,7 @@ export function ModernDynamicLayout() {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div className="md:col-span-2">
-              <img
+              <Image
                 src="/placeholder.svg?height=40&width=150"
                 alt="Red Letter Jobs Logo"
                 className="h-8 mb-4"
@@ -232,7 +233,7 @@ export function ModernDynamicLayout() {
                       href="#"
                       className="text-gray-400 hover:text-white"
                     >
-                      <img
+                      <Image
                         src={`/placeholder.svg?text=${social}&height=24&width=24`}
                         alt={social}
                         className="h-6 w-6"

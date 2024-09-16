@@ -2,7 +2,8 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Select } from "@/components/ui/select"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Search, Briefcase, ChevronRight, MapPin, Clock, DollarSign, Menu } from "lucide-react"
+import { Search, Briefcase, ChevronRight, MapPin, Clock, Menu } from "lucide-react"
+import Image from "next/image"
 
 export default function Component() {
   return (
@@ -11,7 +12,7 @@ export default function Component() {
         <div className="container mx-auto px-4 py-4">
           <div className="flex justify-between items-center">
             <div className="flex items-center space-x-4">
-              <img src="/placeholder.svg?height=40&width=40" alt="Red Letter Jobs Logo" className="h-10 w-10" />
+              <Image src="/placeholder.svg?height=40&width=40" alt="Red Letter Jobs Logo" className="h-10 w-10" />
               <span className="text-xl font-bold text-blue-600">Red Letter Jobs</span>
             </div>
             <nav className="hidden md:flex space-x-6">
@@ -158,7 +159,7 @@ export default function Component() {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div className="md:col-span-2">
               <div className="flex items-center space-x-4 mb-4">
-                <img src="/placeholder.svg?height=40&width=40" alt="Red Letter Jobs Logo" className="h-10 w-10" />
+                <Image src="/placeholder.svg?height=40&width=40" alt="Red Letter Jobs Logo" className="h-10 w-10" />
                 <span className="text-xl font-bold">Red Letter Jobs</span>
               </div>
               <p className="text-sm text-gray-300 mb-4">
@@ -167,7 +168,7 @@ export default function Component() {
               <div className="flex space-x-4">
                 {['facebook', 'twitter', 'instagram', 'linkedin'].map((social) => (
                   <a key={social} href="#" className="text-gray-300 hover:text-white">
-                    <img src={`/placeholder.svg?text=${social}&height=24&width=24`} alt={social} className="h-6 w-6" />
+                    <Image src={`/placeholder.svg?text=${social}&height=24&width=24`} alt={social} className="h-6 w-6" />
                   </a>
                 ))}
               </div>

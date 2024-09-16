@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { Search, Upload, Briefcase, ChevronDown } from 'lucide-react'
+import Image from 'next/image'
 
 const jobListings = [
   { title: "Assistant Pastor of Youth and Evangelism", church: "Community West Church", location: "Herndon, Virginia", date: "13 Sep 2024", type: "FULL TIME" },
@@ -53,7 +54,7 @@ export function HomePageComponent() {
       <header className="bg-white shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
           <div className="flex items-center">
-            <img src="/placeholder.svg?height=40&width=40" alt="Red Letter Jobs Logo" className="h-10 w-10 mr-2" />
+            <Image src="/placeholder.svg?height=40&width=40" alt="Red Letter Jobs Logo" className="h-10 w-10 mr-2" />
             <span className="text-2xl font-bold text-gray-900">Red Letter Jobs</span>
           </div>
           <nav className="hidden md:flex space-x-4">
@@ -122,7 +123,7 @@ export function HomePageComponent() {
             </div>
           </div>
           <div className="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
-            <img
+            <Image
               className="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full"
               src="/placeholder.svg?height=600&width=800"
               alt="Christian community"
@@ -216,7 +217,7 @@ export function HomePageComponent() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>
-              <img src="/placeholder.svg?height=40&width=40" alt="Red Letter Jobs Logo" className="h-10 w-10 mb-4" />
+              <Image src="/placeholder.svg?height=40&width=40" alt="Red Letter Jobs Logo" className="h-10 w-10 mb-4" />
               <p className="text-sm mb-4">
                 Red Letter Jobs creates and delivers the best hiring and job search tools for connecting people of faith with ministry jobs.
                 Red Letter Jobs strives to equip churches and Christian organizations to hire the best candidates and job seekers to find meaningful employment in realizing their call.

@@ -2,9 +2,9 @@
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Select } from "@/components/ui/select";
 import { Card, CardContent } from "@/components/ui/card";
 import { Search, Briefcase, ChevronRight } from "lucide-react";
+import Image from "next/image";
 
 export function RedLetterJobs() {
   return (
@@ -12,7 +12,7 @@ export function RedLetterJobs() {
       <header className="bg-white shadow-sm">
         <div className="container mx-auto px-4 py-4">
           <div className="flex justify-between items-center">
-            <img
+            <Image
               src="/placeholder.svg?height=40&width=150"
               alt="Red Letter Jobs Logo"
               className="h-8"
@@ -166,7 +166,7 @@ export function RedLetterJobs() {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div className="md:col-span-2">
-              <img
+              <Image
                 src="/placeholder.svg?height=40&width=150"
                 alt="Red Letter Jobs Logo"
                 className="h-8 mb-4"
@@ -183,7 +183,7 @@ export function RedLetterJobs() {
                       href="#"
                       className="text-gray-400 hover:text-blue-500"
                     >
-                      <img
+                      <Image
                         src={`/placeholder.svg?text=${social}&height=24&width=24`}
                         alt={social}
                         className="h-6 w-6"

@@ -1,58 +1,69 @@
-'use client'
+"use client";
 
-import { useState } from 'react'
-import { Search, Upload, Briefcase, ChevronDown, MapPin, Calendar, Clock, Facebook, Twitter, Linkedin, Instagram } from 'lucide-react'
+import { useState } from "react";
+import {
+  Search,
+  Upload,
+  Briefcase,
+  MapPin,
+  Calendar,
+  Facebook,
+  Twitter,
+  Linkedin,
+  Instagram,
+} from "lucide-react";
+import Image from "next/image";
 
 const jobListings = [
-  { 
-    title: "Assistant Pastor of Youth and Evangelism", 
-    church: "Community West Church", 
-    location: "Herndon, Virginia", 
-    date: "13 Sep 2024", 
+  {
+    title: "Assistant Pastor of Youth and Evangelism",
+    church: "Community West Church",
+    location: "Herndon, Virginia",
+    date: "13 Sep 2024",
     type: "FULL TIME",
-    logo: "/placeholder.svg?height=50&width=50"
+    logo: "/placeholder.svg?height=50&width=50",
   },
-  { 
-    title: "Youth & Young Adult Pastor", 
-    church: "Vineyard Maryville", 
-    location: "Maryville, Tennessee", 
-    date: "13 Sep 2024", 
+  {
+    title: "Youth & Young Adult Pastor",
+    church: "Vineyard Maryville",
+    location: "Maryville, Tennessee",
+    date: "13 Sep 2024",
     type: "FULL TIME",
-    logo: "/placeholder.svg?height=50&width=50"
+    logo: "/placeholder.svg?height=50&width=50",
   },
-  { 
-    title: "Youth Ministry Director", 
-    church: "Mercy Vineyard Church", 
-    location: "Minneapolis, Minnesota", 
-    date: "13 Sep 2024", 
+  {
+    title: "Youth Ministry Director",
+    church: "Mercy Vineyard Church",
+    location: "Minneapolis, Minnesota",
+    date: "13 Sep 2024",
     type: "PART TIME",
-    logo: "/placeholder.svg?height=50&width=50"
+    logo: "/placeholder.svg?height=50&width=50",
   },
-  { 
-    title: "Youth and Young Adults Pastor / Director", 
-    church: "Miami Vineyard Community Church", 
-    location: "Miami, Florida", 
-    date: "13 Sep 2024", 
+  {
+    title: "Youth and Young Adults Pastor / Director",
+    church: "Miami Vineyard Community Church",
+    location: "Miami, Florida",
+    date: "13 Sep 2024",
     type: "FULL TIME",
-    logo: "/placeholder.svg?height=50&width=50"
+    logo: "/placeholder.svg?height=50&width=50",
   },
-  { 
-    title: "Lead Pastor", 
-    church: "Temple Baptist Church in Swan River", 
-    location: "Swan River, Manitoba", 
-    date: "12 Sep 2024", 
+  {
+    title: "Lead Pastor",
+    church: "Temple Baptist Church in Swan River",
+    location: "Swan River, Manitoba",
+    date: "12 Sep 2024",
     type: "FULL TIME",
-    logo: "/placeholder.svg?height=50&width=50"
+    logo: "/placeholder.svg?height=50&width=50",
   },
-  { 
-    title: "Pastor/Minister", 
-    church: "Hopewell Associate Reformed Presbyterian Church", 
-    location: "Covington, Georgia", 
-    date: "12 Sep 2024", 
+  {
+    title: "Pastor/Minister",
+    church: "Hopewell Associate Reformed Presbyterian Church",
+    location: "Covington, Georgia",
+    date: "12 Sep 2024",
     type: "FULL TIME",
-    logo: "/placeholder.svg?height=50&width=50"
+    logo: "/placeholder.svg?height=50&width=50",
   },
-]
+];
 
 const popularCategories = [
   { name: "Pastor / Senior Pastor", icon: "🙏", count: 180 },
@@ -63,7 +74,7 @@ const popularCategories = [
   { name: "Family Ministry", icon: "❤️", count: 24 },
   { name: "Discipleship Ministry", icon: "📚", count: 111 },
   { name: "Adult Ministry", icon: "🧑‍🤝‍🧑", count: 12 },
-]
+];
 
 const denominations = [
   { name: "Baptist - SBC", count: 64 },
@@ -81,38 +92,81 @@ const denominations = [
   { name: "Presbyterian", count: 12 },
   { name: "Vineyard", count: 9 },
   { name: "Independent", count: 4 },
-]
+];
 
 export default function HomePage() {
-  const [searchTerm, setSearchTerm] = useState("")
-  const [location, setLocation] = useState("")
-  const [category, setCategory] = useState("")
+  const [searchTerm, setSearchTerm] = useState("");
+  const [location, setLocation] = useState("");
+  const [category, setCategory] = useState("");
 
   return (
     <div className="min-h-screen bg-gray-50">
       <header className="bg-white shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
           <div className="flex items-center">
-            <img src="/placeholder.svg?height=40&width=40" alt="Red Letter Jobs Logo" className="h-10 w-10 mr-2" />
-            <span className="text-2xl font-bold text-gray-900">Red Letter Jobs</span>
+            <Image
+              src="/placeholder.svg?height=40&width=40"
+              alt="Red Letter Jobs Logo"
+              className="h-10 w-10 mr-2"
+            />
+            <span className="text-2xl font-bold text-gray-900">
+              Red Letter Jobs
+            </span>
           </div>
           <nav className="hidden md:flex space-x-8">
-            <a href="#" className="text-gray-600 hover:text-gray-900 font-medium">Home</a>
-            <a href="#" className="text-gray-600 hover:text-gray-900 font-medium">Find Jobs</a>
-            <a href="#" className="text-gray-600 hover:text-gray-900 font-medium">Post Jobs</a>
-            <a href="#" className="text-gray-600 hover:text-gray-900 font-medium">Pricing</a>
-            <a href="#" className="text-gray-600 hover:text-gray-900 font-medium">Blog</a>
-            <a href="#" className="text-gray-600 hover:text-gray-900 font-medium">FAQ's</a>
-            <a href="#" className="text-gray-600 hover:text-gray-900 font-medium">Contact</a>
+            <a
+              href="#"
+              className="text-gray-600 hover:text-gray-900 font-medium"
+            >
+              Home
+            </a>
+            <a
+              href="#"
+              className="text-gray-600 hover:text-gray-900 font-medium"
+            >
+              Find Jobs
+            </a>
+            <a
+              href="#"
+              className="text-gray-600 hover:text-gray-900 font-medium"
+            >
+              Post Jobs
+            </a>
+            <a
+              href="#"
+              className="text-gray-600 hover:text-gray-900 font-medium"
+            >
+              Pricing
+            </a>
+            <a
+              href="#"
+              className="text-gray-600 hover:text-gray-900 font-medium"
+            >
+              Blog
+            </a>
+            <a
+              href="#"
+              className="text-gray-600 hover:text-gray-900 font-medium"
+            >
+              FAQ's
+            </a>
+            <a
+              href="#"
+              className="text-gray-600 hover:text-gray-900 font-medium"
+            >
+              Contact
+            </a>
           </nav>
-          <a href="#" className="text-blue-600 hover:text-blue-800 font-medium">Hi Jobseeker</a>
+          <a href="#" className="text-blue-600 hover:text-blue-800 font-medium">
+            Hi Jobseeker
+          </a>
         </div>
       </header>
 
       <main>
         <div className="relative bg-gray-900 overflow-hidden">
           <div className="absolute inset-0">
-            <img
+            <Image
               className="w-full h-full object-cover"
               src="/placeholder.svg?height=600&width=1200"
               alt="Church interior"
@@ -124,7 +178,8 @@ export default function HomePage() {
               Christian job search with a deeper sense of purpose
             </h1>
             <p className="mt-6 max-w-3xl text-xl text-gray-300">
-              Find your calling in ministry and make a difference in the world through faith-based employment opportunities.
+              Find your calling in ministry and make a difference in the world
+              through faith-based employment opportunities.
             </p>
             <div className="mt-10">
               <div className="max-w-xl mx-auto bg-white rounded-lg overflow-hidden md:max-w-3xl">
@@ -191,18 +246,30 @@ export default function HomePage() {
             </button>
           </div>
 
-          <h2 className="text-3xl font-bold text-gray-900 mb-6">Recent Church & Pastor Job Opportunities</h2>
+          <h2 className="text-3xl font-bold text-gray-900 mb-6">
+            Recent Church & Pastor Job Opportunities
+          </h2>
           <p className="text-gray-600 mb-8 text-center italic">
-            "Go ye therefore, and teach all nations, baptizing them in the name of the Father, and of the Son, and of the Holy Ghost."
+            "Go ye therefore, and teach all nations, baptizing them in the name
+            of the Father, and of the Son, and of the Holy Ghost."
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
             {jobListings.map((job, index) => (
-              <div key={index} className="bg-white shadow-md rounded-lg p-6 hover:shadow-lg transition duration-300">
+              <div
+                key={index}
+                className="bg-white shadow-md rounded-lg p-6 hover:shadow-lg transition duration-300"
+              >
                 <div className="flex items-start">
-                  <img src={job.logo} alt={`${job.church} logo`} className="w-12 h-12 rounded-full mr-4" />
+                  <Image
+                    src={job.logo}
+                    alt={`${job.church} logo`}
+                    className="w-12 h-12 rounded-full mr-4"
+                  />
                   <div>
-                    <h3 className="text-xl font-semibold text-gray-900 mb-2">{job.title}</h3>
+                    <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                      {job.title}
+                    </h3>
                     <p className="text-blue-600 mb-1">{job.church}</p>
                     <div className="flex items-center text-gray-600 mb-2">
                       <MapPin className="w-4 h-4 mr-1" />
@@ -213,7 +280,13 @@ export default function HomePage() {
                       <span>{job.date}</span>
                     </div>
                     <div className="flex justify-between items-center">
-                      <span className={`px-3 py-1 rounded-full text-sm font-semibold ${job.type === 'FULL TIME' ? 'bg-green-100 text-green-800' : 'bg-yellow-100 text-yellow-800'}`}>
+                      <span
+                        className={`px-3 py-1 rounded-full text-sm font-semibold ${
+                          job.type === "FULL TIME"
+                            ? "bg-green-100 text-green-800"
+                            : "bg-yellow-100 text-yellow-800"
+                        }`}
+                      >
                         {job.type}
                       </span>
                       <button className="text-blue-600 hover:text-blue-800">
@@ -232,16 +305,24 @@ export default function HomePage() {
             </button>
           </div>
 
-          <h2 className="text-3xl font-bold text-gray-900 mt-20 mb-6">Popular Church Jobs & Pastor Jobs</h2>
+          <h2 className="text-3xl font-bold text-gray-900 mt-20 mb-6">
+            Popular Church Jobs & Pastor Jobs
+          </h2>
           <p className="text-gray-600 mb-8 text-center italic">
-            "And he gave some, apostles; and some, prophets; and some, evangelists; and some, pastors and teachers."
+            "And he gave some, apostles; and some, prophets; and some,
+            evangelists; and some, pastors and teachers."
           </p>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
             {popularCategories.map((category, index) => (
-              <div key={index} className="bg-white shadow-md rounded-lg p-6 text-center hover:shadow-lg transition duration-300">
+              <div
+                key={index}
+                className="bg-white shadow-md rounded-lg p-6 text-center hover:shadow-lg transition duration-300"
+              >
                 <span className="text-4xl mb-4 block">{category.icon}</span>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">{category.name}</h3>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                  {category.name}
+                </h3>
                 <p className="text-gray-600">{category.count} Opportunities</p>
               </div>
             ))}
@@ -253,7 +334,9 @@ export default function HomePage() {
             </button>
           </div>
 
-          <h2 className="text-3xl font-bold text-gray-900 mt-20 mb-6">Find by Denomination/Location</h2>
+          <h2 className="text-3xl font-bold text-gray-900 mt-20 mb-6">
+            Find by Denomination/Location
+          </h2>
           <p className="text-gray-600 mb-8 text-center">
             Candidates can find your job by Denomination/Location.
           </p>
@@ -266,7 +349,9 @@ export default function HomePage() {
                 className="bg-white shadow-md rounded-lg p-4 text-center hover:shadow-lg transition duration-300 text-gray-900 hover:text-blue-600"
               >
                 <span className="font-semibold">{denomination.name}</span>
-                <span className="text-gray-600 block">({denomination.count})</span>
+                <span className="text-gray-600 block">
+                  ({denomination.count})
+                </span>
               </a>
             ))}
           </div>
@@ -283,10 +368,17 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div className="col-span-2">
-              <img src="/placeholder.svg?height=40&width=40" alt="Red Letter Jobs Logo" className="h-10 w-10 mb-4" />
+              <Image
+                src="/placeholder.svg?height=40&width=40"
+                alt="Red Letter Jobs Logo"
+                className="h-10 w-10 mb-4"
+              />
               <p className="text-sm mb-4">
-                Red Letter Jobs creates and delivers the best hiring and job search tools for connecting people of faith with ministry jobs.
-                Red Letter Jobs strives to equip churches and Christian organizations to hire the best candidates and job seekers to find meaningful employment in realizing their call.
+                Red Letter Jobs creates and delivers the best hiring and job
+                search tools for connecting people of faith with ministry jobs.
+                Red Letter Jobs strives to equip churches and Christian
+                organizations to hire the best candidates and job seekers to
+                find meaningful employment in realizing their call.
               </p>
               <button className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
                 Get Started
@@ -295,22 +387,50 @@ export default function HomePage() {
             <div>
               <h3 className="text-lg font-semibold mb-4">Popular Links</h3>
               <ul className="space-y-2">
-                <li><a href="#" className="hover:text-blue-400">About Us</a></li>
-                <li><a href="#" className="hover:text-blue-400">Pricing</a></li>
-                <li><a href="#" className="hover:text-blue-400">Cookie Policy</a></li>
-                <li><a href="#" className="hover:text-blue-400">Privacy Policy</a></li>
-                <li><a href="#" className="hover:text-blue-400">Refund Policy</a></li>
-                <li><a href="#" className="hover:text-blue-400">Terms Of Use</a></li>
+                <li>
+                  <a href="#" className="hover:text-blue-400">
+                    About Us
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-blue-400">
+                    Pricing
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-blue-400">
+                    Cookie Policy
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-blue-400">
+                    Privacy Policy
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-blue-400">
+                    Refund Policy
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-blue-400">
+                    Terms Of Use
+                  </a>
+                </li>
               </ul>
             </div>
             <div>
               <h3 className="text-lg font-semibold mb-4">Latest Tweets</h3>
               <p className="text-sm">No Tweets Found</p>
-              <a href="#" className="text-blue-400 hover:underline">@RedLetterJobs</a>
+              <a href="#" className="text-blue-400 hover:underline">
+                @RedLetterJobs
+              </a>
             </div>
           </div>
           <div className="mt-8 pt-8 border-t border-gray-700 flex flex-col md:flex-row justify-between items-center">
-            <p className="text-sm mb-4 md:mb-0">Red Letter Jobs © 2024. All Rights Reserved</p>
+            <p className="text-sm mb-4 md:mb-0">
+              Red Letter Jobs © 2024. All Rights Reserved
+            </p>
             <div className="flex space-x-4">
               <a href="#" className="text-gray-400 hover:text-white">
                 <Facebook className="w-6 h-6" />
@@ -329,5 +449,5 @@ export default function HomePage() {
         </div>
       </footer>
     </div>
-  )
+  );
 }

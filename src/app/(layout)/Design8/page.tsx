@@ -5,15 +5,14 @@ import {
   Search,
   Upload,
   Briefcase,
-  ChevronDown,
   MapPin,
   Calendar,
-  Clock,
   Facebook,
   Twitter,
   Linkedin,
   Instagram,
 } from "lucide-react";
+import Image from "next/image";
 
 const jobListings = [
   {
@@ -129,14 +128,14 @@ const denominations = [
 export default function HomePage() {
   const [searchTerm, setSearchTerm] = useState("");
   const [location, setLocation] = useState("");
-  const [category, setCategory] = useState("");
+  
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
       <header className="bg-white shadow-md">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
           <div className="flex items-center">
-            <img
+            <Image
               src="/placeholder.svg?height=40&width=40"
               alt="Red Letter Jobs Logo"
               className="h-10 w-10 mr-2"
@@ -192,7 +191,7 @@ export default function HomePage() {
       <main>
         <div className="relative bg-gradient-to-r from-blue-500 to-purple-600 overflow-hidden">
           <div className="absolute inset-0">
-            <img
+            <Image
               className="w-full h-full object-cover opacity-20"
               src="/placeholder.svg?height=600&width=1200"
               alt="Church interior"
@@ -364,7 +363,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div className="col-span-2">
-              <img
+              <Image
                 src="/placeholder.svg?height=40&width=40"
                 alt="Red Letter Jobs Logo"
                 className="h-10 w-10 mb-4"
