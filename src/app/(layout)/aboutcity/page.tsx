@@ -2,7 +2,6 @@
 import {
   Card,
   CardContent,
-  CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
@@ -10,7 +9,6 @@ import {
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { ArrowRight, Heart, Instagram } from "lucide-react";
 import Link from "next/link";
-import { motion } from "framer-motion";
 import * as React from "react";
 import Image from "next/image";
 import {
