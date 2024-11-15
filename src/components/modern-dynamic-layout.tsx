@@ -23,10 +23,13 @@ export function ModernDynamicLayout() {
         <div className="container mx-auto px-4 py-4">
           <div className="flex justify-between items-center">
             <Image
-              src="/placeholder.svg?height=40&width=150"
-              alt="Red Letter Jobs Logo"
-              className="h-8"
+              className="w-[120px] lg:w-[190px] md:bg-none hidden md:block"
+              src="/placeholder.svg"
+              alt="logo"
+              width={150} // Explicit width
+              height={40} // Explicit height
             />
+
             <nav className="hidden md:flex space-x-6">
               {["Find Jobs", "Post a Job", "Resources", "About Us"].map(
                 (item) => (
@@ -216,10 +219,13 @@ export function ModernDynamicLayout() {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div className="md:col-span-2">
               <Image
-                src="/placeholder.svg?height=40&width=150"
-                alt="Red Letter Jobs Logo"
-                className="h-8 mb-4"
+                className="w-[120px] lg:w-[190px] md:bg-none hidden md:block"
+                src="/placeholder.svg"
+                alt="logo"
+                width={150} // Explicit width
+                height={40} // Explicit height
               />
+
               <p className="text-sm mb-4">
                 Red Letter Jobs is dedicated to connecting passionate
                 individuals with meaningful careers in Christian ministry and
@@ -234,9 +240,10 @@ export function ModernDynamicLayout() {
                       className="text-gray-400 hover:text-white"
                     >
                       <Image
-                        src={`/placeholder.svg?text=${social}&height=24&width=24`}
+                        src={`/placeholder.svg?text=${social}`} // Only pass the text in the query string
                         alt={social}
-                        className="h-6 w-6"
+                        width={24} // Explicitly provide width
+                        height={24} // Explicitly provide height
                       />
                     </a>
                   )

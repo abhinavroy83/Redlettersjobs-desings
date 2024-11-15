@@ -14,10 +14,13 @@ export function NewLayout() {
       <header className="bg-white shadow-sm sticky top-0 z-10">
         <div className="container mx-auto px-4 py-3 flex justify-between items-center">
           <Image
-            src="/placeholder.svg?height=40&width=150"
-            alt="Red Letter Jobs Logo"
-            className="h-8"
+            className="w-[120px] lg:w-[190px] md:bg-none hidden md:block"
+            src="/placeholder.svg"
+            alt="logo"
+            width={150} // Explicit width
+            height={40} // Explicit height
           />
+
           <nav className="hidden md:block">
             <ul className="flex space-x-6">
               {["Home", "Jobs", "Post a Job", "Resources", "Contact"].map(
@@ -185,10 +188,13 @@ export function NewLayout() {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div className="md:col-span-2">
               <Image
-                src="/placeholder.svg?height=40&width=150"
-                alt="Red Letter Jobs Logo"
-                className="h-8 mb-4"
+                className="w-[120px] lg:w-[190px] md:bg-none hidden md:block"
+                src="/placeholder.svg"
+                alt="logo"
+                width={150} // Explicit width
+                height={40} // Explicit height
               />
+
               <p className="text-sm mb-4">
                 Connecting Christians with meaningful career opportunities.
               </p>
@@ -201,9 +207,11 @@ export function NewLayout() {
                       className="text-gray-400 hover:text-white"
                     >
                       <Image
-                        src={`/placeholder.svg?text=${social}&height=24&width=24`}
+                        src={`/placeholder.svg?text=${social}`} // Only pass the text in the query string
                         alt={social}
-                        className="h-6 w-6"
+                        width={24} // Explicitly provide width
+                        height={24} // Explicitly provide height
+                       
                       />
                     </a>
                   )
