@@ -128,7 +128,6 @@ const denominations = [
 export default function HomePage() {
   const [searchTerm, setSearchTerm] = useState("");
   const [location, setLocation] = useState("");
-  
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
@@ -138,7 +137,9 @@ export default function HomePage() {
             <Image
               src="/placeholder.svg?height=40&width=40"
               alt="Red Letter Jobs Logo"
-              className="h-10 w-10 mr-2"
+              className="mr-2"
+              width={10} // Explicit width
+              height={10} 
             />
             <span className="text-2xl font-bold text-red-600">
               Red Letter Jobs
@@ -191,7 +192,7 @@ export default function HomePage() {
       <main>
         <div className="relative bg-gradient-to-r from-blue-500 to-purple-600 overflow-hidden">
           <div className="absolute inset-0">
-            <Image
+            <img
               className="w-full h-full object-cover opacity-20"
               src="/placeholder.svg?height=600&width=1200"
               alt="Church interior"
@@ -366,7 +367,9 @@ export default function HomePage() {
               <Image
                 src="/placeholder.svg?height=40&width=40"
                 alt="Red Letter Jobs Logo"
-                className="h-10 w-10 mb-4"
+                className="mb-4"
+                width={10} // Explicit width
+                height={10}
               />
               <p className="text-sm mb-4">
                 Red Letter Jobs creates and delivers the best hiring and job
