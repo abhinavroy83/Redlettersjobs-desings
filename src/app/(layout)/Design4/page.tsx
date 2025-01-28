@@ -20,9 +20,10 @@ export default function Component() {
           <div className="flex justify-between items-center">
             <div className="flex items-center space-x-4">
               <Image
-                src="/placeholder.svg?height=40&width=40"
+                src="/placeholder.svg"
                 alt="Red Letter Jobs Logo"
-                className="h-10 w-10"
+                width={40} // Explicit width
+                height={40}
               />
               <span className="text-xl font-bold text-blue-600">
                 Red Letter Jobs
@@ -235,7 +236,8 @@ export default function Component() {
                 <Image
                   src="/placeholder.svg"
                   alt="Red Letter Jobs Logo"
-                  className="h-10 w-10"
+                  width={10} // Explicit width
+                  height={10} 
                 />
                 <span className="text-xl font-bold">Red Letter Jobs</span>
               </div>
@@ -254,9 +256,8 @@ export default function Component() {
                       <Image
                         src={`/placeholder.svg?text=${social}`} // Only pass the text in the query string
                         alt={social}
-                        width={24} // Explicitly provide width
-                        height={24} // Explicitly provide height
-                    
+                        width={10} // Explicitly provide width
+                        height={10} // Explicitly provide height
                       />{" "}
                     </a>
                   )

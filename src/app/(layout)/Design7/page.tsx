@@ -107,7 +107,9 @@ export default function HomePage() {
             <Image
               src="/placeholder.svg?height=40&width=40"
               alt="Red Letter Jobs Logo"
-              className="h-10 w-10 mr-2"
+              className="mr-2"
+              width={40} // Explicit width
+              height={40}
             />
             <span className="text-2xl font-bold text-gray-900">
               Red Letter Jobs
@@ -166,7 +168,7 @@ export default function HomePage() {
       <main>
         <div className="relative bg-gray-900 overflow-hidden">
           <div className="absolute inset-0">
-            <Image
+            <img
               className="w-full h-full object-cover"
               src="/placeholder.svg?height=600&width=1200"
               alt="Church interior"
@@ -261,7 +263,7 @@ export default function HomePage() {
                 className="bg-white shadow-md rounded-lg p-6 hover:shadow-lg transition duration-300"
               >
                 <div className="flex items-start">
-                  <Image
+                  <img
                     src={job.logo}
                     alt={`${job.church} logo`}
                     className="w-12 h-12 rounded-full mr-4"
@@ -368,7 +370,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div className="col-span-2">
-              <Image
+              <img
                 src="/placeholder.svg?height=40&width=40"
                 alt="Red Letter Jobs Logo"
                 className="h-10 w-10 mb-4"

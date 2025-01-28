@@ -131,9 +131,11 @@ export function NewLayout() {
                     className="h-auto py-4 justify-start"
                   >
                     <Image
-                      src="/placeholder.svg?height=24&width=24"
+                      src="/placeholder.svg"
                       alt=""
                       className="mr-3"
+                      width={24} // Explicit width
+                      height={24} 
                     />
                     {category}
                   </Button>
