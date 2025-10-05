@@ -5,213 +5,473 @@ import { Input } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
 import { Search, ArrowRight, Menu } from "lucide-react";
 import Image from "next/image";
-
+import { motion } from "framer-motion";
 export function MinimalistLayout() {
   return (
-    <div className="min-h-screen bg-gray-50">
-      <header className="bg-white border-b">
-        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <Image
-            className="w-[120px] lg:w-[190px] md:bg-none hidden md:block"
-            src="/placeholder.svg"
-            alt="logo"
-            width={150} // Explicit width
-            height={40} // Explicit height
-          />
-
-          <nav className="hidden md:block">
-            <ul className="flex space-x-8">
-              {["Jobs", "Employers", "Resources", "About", "Contact"].map(
-                (item) => (
-                  <li key={item}>
-                    <a
-                      href="#"
-                      className="text-gray-600 hover:text-blue-600 transition-colors"
-                    >
-                      {item}
-                    </a>
-                  </li>
-                )
-              )}
-            </ul>
+    <div className="min-h-screen bg-gray-50 text-gray-800">
+      {/* HERO */}
+      <header className="relative">
+        <div
+          className="h-[520px] bg-cover bg-center"
+          style={{
+            backgroundImage:
+              "url(https://res.cloudinary.com/druohnmyv/image/upload/v1744965083/portland_deyhxa.jpg)",
+          }}
+        >
+          <div className="absolute inset-0 bg-black/45"></div>
+          <nav className="container mx-auto px-6 py-6 relative z-20 flex items-center justify-between">
+            <div className="text-white font-bold text-xl">YourLogo</div>
+            <div className="hidden md:flex gap-6 text-white/90">
+              <a className="hover:underline">Home</a>
+              <a className="hover:underline">Jobs</a>
+              <a className="hover:underline">Categories</a>
+              <a className="hover:underline">About</a>
+            </div>
+            <div className="text-white hidden md:block">Sign in</div>
           </nav>
-          <div className="flex items-center space-x-4">
-            <Button variant="outline" className="hidden md:inline-flex">
-              Post a Job
-            </Button>
-            <Button variant="ghost" className="md:hidden">
-              <Menu className="h-6 w-6" />
-            </Button>
+
+          <div className="container mx-auto px-6 relative z-20 flex flex-col items-center justify-center h-full text-center">
+            <motion.h1
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.6 }}
+              className="text-3xl md:text-5xl font-extrabold leading-tight text-white drop-shadow-lg"
+            >
+              ROOMS FROM <span className="line-through mr-2">$166</span>
+              <span className="ml-2">$144</span>
+            </motion.h1>
+            <motion.p
+              initial={{ y: 12, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.7 }}
+              className="mt-4 text-white/90 max-w-2xl"
+            >
+              Find the best places, great deals and book instantly — example
+              hero subtitle to match the screenshot.
+            </motion.p>
+
+            {/* Booking / Search form overlay */}
+            <motion.div
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.9 }}
+              className="w-full max-w-4xl bg-white rounded-xl shadow-2xl mt-8 p-5 md:p-6"
+            >
+              <form className="grid grid-cols-1 md:grid-cols-4 gap-3 items-end">
+                <div className="col-span-1 md:col-span-2">
+                  <label className="text-xs font-medium text-gray-500">
+                    Destination
+                  </label>
+                  <input
+                    className="w-full border border-gray-200 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-200"
+                    placeholder="City, hotel, address..."
+                  />
+                </div>
+                <div>
+                  <label className="text-xs font-medium text-gray-500">
+                    Check-in
+                  </label>
+                  <input
+                    type="date"
+                    className="w-full border border-gray-200 rounded-md px-3 py-2"
+                  />
+                </div>
+                <div>
+                  <label className="text-xs font-medium text-gray-500">
+                    Check-out
+                  </label>
+                  <input
+                    type="date"
+                    className="w-full border border-gray-200 rounded-md px-3 py-2"
+                  />
+                </div>
+
+                <div className="md:col-span-4 flex justify-end mt-1">
+                  <button
+                    type="submit"
+                    className="ml-auto bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-md font-semibold"
+                  >
+                    Search rooms
+                  </button>
+                </div>
+              </form>
+
+              {/* small stats / quick links row */}
+              <div className="mt-4 flex flex-wrap gap-3 text-sm text-gray-600">
+                <div className="flex items-center gap-2">
+                  <svg
+                    className="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M12 8v4l3 3"
+                    />
+                  </svg>
+                  Best price guarantee
+                </div>
+                <div className="flex items-center gap-2">
+                  <svg
+                    className="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M12 6v6l4 2"
+                    />
+                  </svg>
+                  Free cancellation
+                </div>
+                <div className="flex items-center gap-2">
+                  <svg
+                    className="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                  Verified hosts
+                </div>
+              </div>
+            </motion.div>
           </div>
         </div>
       </header>
 
-      <main>
-        <section className="bg-blue-600 text-white py-20">
-          <div className="container mx-auto px-4 text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              Find Your Calling in Christian Ministry
-            </h1>
-            <p className="text-xl mb-8 max-w-2xl mx-auto">
-              Connect with churches and organizations seeking passionate
-              individuals like you.
-            </p>
-            <div className="max-w-3xl mx-auto bg-white rounded-lg shadow-lg p-4 flex flex-col md:flex-row gap-4">
-              <Input
-                placeholder="Job title or keywords"
-                className="flex-grow"
-              />
-              <Input placeholder="Location" className="flex-grow" />
-              <Button size="lg" className="w-full md:w-auto">
-                <Search className="mr-2 h-4 w-4" /> Search
-              </Button>
+      {/* Recent Jobs / small strip */}
+      <section className="container mx-auto px-6 -mt-8 relative z-10">
+        <div className="bg-white rounded-xl shadow p-4 flex items-center justify-between gap-4">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 bg-blue-100 rounded flex items-center justify-center">
+              <svg
+                className="w-5 h-5 text-blue-600"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+              >
+                <path
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M3 7h18M3 12h18M3 17h18"
+                />
+              </svg>
             </div>
-          </div>
-        </section>
-
-        <section className="py-16">
-          <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-semibold text-center mb-12">
-              Explore Opportunities
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {[
-                { title: "Church Staff", count: 1234 },
-                { title: "Non-Profit", count: 567 },
-                { title: "Education", count: 890 },
-                { title: "Missions", count: 345 },
-                { title: "Worship", count: 678 },
-                { title: "Youth Ministry", count: 901 },
-              ].map((category) => (
-                <Card
-                  key={category.title}
-                  className="hover:shadow-md transition-shadow"
-                >
-                  <CardContent className="p-6 flex justify-between items-center">
-                    <div>
-                      <h3 className="text-xl font-semibold mb-1">
-                        {category.title}
-                      </h3>
-                      <p className="text-gray-600">{category.count} jobs</p>
-                    </div>
-                    <ArrowRight className="h-6 w-6 text-blue-600" />
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="bg-gray-100 py-16">
-          <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-semibold text-center mb-12">
-              Featured Jobs
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {[1, 2, 3, 4].map((i) => (
-                <Card key={i}>
-                  <CardContent className="p-6">
-                    <h3 className="text-xl font-semibold mb-2">
-                      Senior Pastor
-                    </h3>
-                    <p className="text-gray-600 mb-4">
-                      First Baptist Church - Atlanta, GA
-                    </p>
-                    <div className="flex justify-between items-center">
-                      <span className="text-sm text-gray-500">Full Time</span>
-                      <Button variant="outline">Apply Now</Button>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-            <div className="text-center mt-12">
-              <Button size="lg">View All Jobs</Button>
-            </div>
-          </div>
-        </section>
-
-        <section className="py-16">
-          <div className="container mx-auto px-4 text-center">
-            <h2 className="text-3xl font-semibold mb-6">For Employers</h2>
-            <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-              Find the perfect candidates for your ministry positions
-            </p>
-            <div className="flex flex-col md:flex-row justify-center gap-4">
-              <Button size="lg">Post a Job</Button>
-              <Button size="lg" variant="outline">
-                Search Resumes
-              </Button>
-            </div>
-          </div>
-        </section>
-      </main>
-
-      <footer className="bg-gray-800 text-white py-12">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div className="md:col-span-2">
-              <img
-                src="/placeholder.svg?height=40&width=150"
-                alt="Red Letter Jobs Logo"
-                className="h-8 mb-4"
-              />
-              <p className="text-sm mb-4">
-                Connecting Christians with meaningful career opportunities in
-                ministry and non-profit sectors.
-              </p>
-              <div className="flex space-x-4">
-                {["facebook", "twitter", "instagram", "linkedin"].map(
-                  (social) => (
-                    <a
-                      key={social}
-                      href="#"
-                      className="text-gray-400 hover:text-white"
-                    >
-                      <img
-                        src={`/placeholder.svg?text=${social}`} // Only pass the text in the query string
-                        alt={social}
-                        width={24} // Explicitly provide width
-                        height={24} // Explicitly provide height
-                      
-                      />
-                    </a>
-                  )
-                )}
+            <div>
+              <div className="text-sm font-medium">Recently Posted Jobs</div>
+              <div className="text-xs text-gray-500">
+                See latest opportunities
               </div>
             </div>
-            <div>
-              <h3 className="font-semibold mb-4">Quick Links</h3>
-              <ul className="space-y-2">
-                {[
-                  "About Us",
-                  "Contact",
-                  "FAQ",
-                  "Privacy Policy",
-                  "Terms of Service",
-                ].map((link) => (
-                  <li key={link}>
-                    <a href="#" className="hover:underline">
-                      {link}
-                    </a>
-                  </li>
-                ))}
-              </ul>
+          </div>
+          <div className="text-sm text-gray-600 hidden sm:block">
+            Accountant • Marketing Manager • Nurse • Front Desk
+          </div>
+          <div className="flex gap-2">
+            <button className="px-4 py-2 text-sm rounded-md border border-gray-200">
+              View all
+            </button>
+            <button className="px-4 py-2 text-sm rounded-md bg-blue-600 text-white">
+              Post a job
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* Popular categories */}
+      <section className="container mx-auto px-6 mt-10">
+        <motion.div
+          initial={{ opacity: 0, y: 6 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-center"
+        >
+          <h3 className="text-lg font-semibold">POPULAR JOB CATEGORIES</h3>
+          <p className="text-gray-500 mt-2">Browse by category</p>
+        </motion.div>
+
+        <div className="mt-6 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4 items-stretch">
+          {[
+            { name: "Accounting", icon: "💼" },
+            { name: "Administration", icon: "🏢" },
+            { name: "Healthcare", icon: "🏥" },
+            { name: "Hospitality", icon: "🛎️" },
+            { name: "Technology", icon: "💻" },
+            { name: "Customer Service", icon: "📞" },
+          ].map((c) => (
+            <div
+              key={c.name}
+              className="bg-white rounded-lg shadow-sm p-4 flex flex-col items-center text-center"
+            >
+              <div className="text-3xl mb-2">{c.icon}</div>
+              <div className="text-sm font-medium">{c.name}</div>
+              <div className="text-xs text-gray-400 mt-1">10+ jobs</div>
             </div>
-            <div>
-              <h3 className="font-semibold mb-4">Subscribe</h3>
-              <p className="text-sm mb-4">
-                Get the latest job opportunities delivered to your inbox
+          ))}
+        </div>
+      </section>
+
+      {/* Search by specialization / reduced space area (the turquoise box in screenshot) */}
+      <section className="container mx-auto px-6 mt-8">
+        <motion.div
+          initial={{ scale: 0.98, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 0.5 }}
+          className="bg-gradient-to-r from-white to-sky-50 border border-gray-100 rounded-xl shadow p-6"
+        >
+          <div className="flex flex-col md:flex-row gap-6">
+            <div className="flex-1">
+              <h4 className="text-lg font-semibold">
+                FIND BY SPECIALIZATION / LOCATION
+              </h4>
+              <p className="text-sm text-gray-500 mt-1">
+                Refine your search using filters below
               </p>
-              <form className="flex flex-col gap-2">
-                <Input placeholder="Your email" type="email" />
-                <Button>Subscribe</Button>
-              </form>
+              <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+                <input
+                  placeholder="Keyword"
+                  className="border px-3 py-2 rounded-md"
+                />
+                <select className="border px-3 py-2 rounded-md">
+                  <option>Location</option>
+                  <option>New York</option>
+                </select>
+                <select className="border px-3 py-2 rounded-md">
+                  <option>Specialization</option>
+                </select>
+                <select className="border px-3 py-2 rounded-md">
+                  <option>Salary Range</option>
+                </select>
+              </div>
+            </div>
+
+            <div className="w-full md:w-72 flex flex-col gap-3 justify-center">
+              <button className="py-3 px-4 bg-blue-600 text-white rounded-md font-semibold">
+                Search
+              </button>
+              <button className="py-2 px-4 border rounded-md">
+                Advanced search
+              </button>
             </div>
           </div>
-          <div className="mt-12 pt-8 border-t border-gray-700 text-center text-sm">
-            <p>© 2024 Red Letter Jobs. All rights reserved.</p>
+        </motion.div>
+      </section>
+
+      {/* Account CTA */}
+      <section className="container mx-auto px-6 mt-10">
+        <motion.div
+          initial={{ y: 10, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.6 }}
+          className="bg-white rounded-xl shadow-lg p-8 flex flex-col md:flex-row gap-6 items-center"
+        >
+          <div className="flex-1">
+            <h3 className="text-2xl font-bold">
+              Ready to get started? Create an account.
+            </h3>
+            <p className="text-gray-500 mt-2">
+              Save searches, apply faster, and get job alerts tailored to you.
+            </p>
           </div>
+
+          <div className="flex gap-3">
+            <button className="bg-blue-600 text-white px-5 py-3 rounded-md font-semibold">
+              Sign up
+            </button>
+            <button className="px-5 py-3 border rounded-md">Sign in</button>
+          </div>
+        </motion.div>
+      </section>
+
+      {/* Main content: Cards and consultation area */}
+      <main className="container mx-auto px-6 mt-8 grid grid-cols-1 lg:grid-cols-3 gap-6">
+        {/* Left: big content column */}
+        <section className="lg:col-span-2 space-y-6">
+          {/* Large card with form like 'Find your next job' */}
+          <div className="bg-white p-6 rounded-xl shadow">
+            <h4 className="text-lg font-semibold">Find your next job</h4>
+            <p className="text-gray-500 mt-2">Search, save and apply quickly</p>
+            <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-3">
+              <input
+                placeholder="Job title or keyword"
+                className="border px-3 py-2 rounded-md"
+              />
+              <input
+                placeholder="Location"
+                className="border px-3 py-2 rounded-md"
+              />
+              <select className="border px-3 py-2 rounded-md">
+                <option>Job type</option>
+                <option>Full time</option>
+              </select>
+              <button className="bg-blue-600 text-white px-4 py-2 rounded-md">
+                Search jobs
+              </button>
+            </div>
+          </div>
+
+          {/* Features / Why choose us */}
+          <div className="bg-white p-6 rounded-xl shadow grid grid-cols-1 md:grid-cols-3 gap-4">
+            {[
+              {
+                title: "Verified employers",
+                desc: "Only legitimate listings from trusted providers.",
+                icon: "✔️",
+              },
+              {
+                title: "Quick apply",
+                desc: "Apply with a single click after saving your profile.",
+                icon: "⚡",
+              },
+              {
+                title: "24/7 Support",
+                desc: "We help you at every step of the job search.",
+                icon: "🤝",
+              },
+            ].map((f) => (
+              <div key={f.title} className="p-4 border rounded">
+                <div className="text-3xl mb-2">{f.icon}</div>
+                <div className="font-semibold">{f.title}</div>
+                <div className="text-sm text-gray-500 mt-1">{f.desc}</div>
+              </div>
+            ))}
+          </div>
+
+          {/* Testimonials / trust */}
+          <div className="bg-white p-6 rounded-xl shadow">
+            <h5 className="font-semibold">Why Candidates Trust Us</h5>
+            <div className="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div className="space-y-2">
+                <div className="text-sm font-medium">Trusted Professionals</div>
+                <div className="text-xs text-gray-500">
+                  We screen employers thoroughly.
+                </div>
+              </div>
+              <div className="space-y-2">
+                <div className="text-sm font-medium">Experienced Team</div>
+                <div className="text-xs text-gray-500">
+                  Career experts available for help.
+                </div>
+              </div>
+              <div className="space-y-2">
+                <div className="text-sm font-medium">
+                  Satisfaction Guarantee
+                </div>
+                <div className="text-xs text-gray-500">
+                  High-quality placements & follow-ups.
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Right column: consultation and contact */}
+        <aside className="space-y-6">
+          <div className="bg-white p-6 rounded-xl shadow">
+            <h6 className="font-semibold">Get your free consultation</h6>
+            <p className="text-xs text-gray-500 mt-1">
+              Speak to an expert and improve your application
+            </p>
+            <form className="mt-4 space-y-3">
+              <input
+                className="border px-3 py-2 rounded-md w-full"
+                placeholder="Full name"
+              />
+              <input
+                className="border px-3 py-2 rounded-md w-full"
+                placeholder="Phone number"
+              />
+              <input
+                className="border px-3 py-2 rounded-md w-full"
+                placeholder="Email"
+              />
+              <button className="w-full bg-blue-600 text-white py-2 rounded-md">
+                Request call
+              </button>
+            </form>
+          </div>
+
+          <div className="bg-white p-6 rounded-xl shadow">
+            <h6 className="font-semibold">Contact us</h6>
+            <div className="text-sm text-gray-500 mt-2">
+              The Launch Branch
+              <br />
+              support@example.com
+              <br />
+              +1 (555) 123-4567
+            </div>
+          </div>
+
+          <div className="bg-white p-6 rounded-xl shadow text-center">
+            <img
+              src="https://images.unsplash.com/photo-1556761175-129418cb2dfe?auto=format&fit=crop&w=800&q=60"
+              alt="team"
+              className="w-full h-36 object-cover rounded mb-3"
+            />
+            <div className="text-sm font-medium">Trusted by businesses</div>
+            <div className="text-xs text-gray-400 mt-2">
+              Logos & partners section
+            </div>
+          </div>
+        </aside>
+      </main>
+
+      {/* Footer */}
+      <footer className="bg-gray-900 text-gray-300 mt-12">
+        <div className="container mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-4 gap-6">
+          <div>
+            <div className="text-white font-bold text-lg">YourLogo</div>
+            <p className="text-sm text-gray-400 mt-2">
+              Leading job & hospitality platform
+            </p>
+          </div>
+
+          <div>
+            <div className="font-semibold">Company</div>
+            <ul className="mt-3 space-y-2 text-sm text-gray-400">
+              <li>About</li>
+              <li>Careers</li>
+              <li>Press</li>
+            </ul>
+          </div>
+
+          <div>
+            <div className="font-semibold">Support</div>
+            <ul className="mt-3 space-y-2 text-sm text-gray-400">
+              <li>Help Center</li>
+              <li>Contact</li>
+              <li>Privacy</li>
+            </ul>
+          </div>
+
+          <div>
+            <div className="font-semibold">Get the app</div>
+            <div className="mt-3 text-sm text-gray-400">
+              Download on the store
+            </div>
+            <div className="mt-4 flex gap-2">
+              <div className="bg-white/10 px-3 py-2 rounded">App Store</div>
+              <div className="bg-white/10 px-3 py-2 rounded">Google Play</div>
+            </div>
+          </div>
+        </div>
+
+        <div className="border-t border-gray-800 py-4 text-center text-sm text-gray-500">
+          © {new Date().getFullYear()} YourCompany. All rights reserved.
         </div>
       </footer>
     </div>
