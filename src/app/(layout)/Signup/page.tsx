@@ -12,14 +12,14 @@ export default function CreateAccount() {
 
   return (
     <div
-      className="min-h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat relative"
-      style={{
-        backgroundImage:
-          "url('https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=1600&q=80')",
-      }}
+      className="min-h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat relative bg-gray-100"
+      // style={{
+      //   backgroundImage:
+      //     "url('https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=1600&q=80')",
+      // }}
     >
       {/* Overlay */}
-      <div className="absolute inset-0 bg-black/40 backdrop-blur-sm"></div>
+      {/* <div className="absolute inset-0 bg-black/40 backdrop-blur-sm"></div> */}
 
       {/* Form Card */}
       <motion.div
