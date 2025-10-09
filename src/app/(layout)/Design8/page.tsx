@@ -1,500 +1,412 @@
 "use client";
 
+import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
+import { Search, MapPin, Building2, Clock, ArrowRight, Star, Users, Shield, Heart } from "lucide-react";
 import { useState } from "react";
-import {
-  Search,
-  Upload,
-  Briefcase,
-  MapPin,
-  Calendar,
-  Facebook,
-  Twitter,
-  Linkedin,
-  Instagram,
-} from "lucide-react";
-import Image from "next/image";
 
-const jobListings = [
-  {
-    title: "Assistant Pastor of Youth and Evangelism",
-    church: "Community West Church",
-    location: "Herndon, Virginia",
-    date: "13 Sep 2024",
-    type: "FULL TIME",
-  },
-  {
-    title: "Youth & Young Adult Pastor",
-    church: "Vineyard Maryville",
-    location: "Maryville, Tennessee",
-    date: "13 Sep 2024",
-    type: "FULL TIME",
-  },
-  {
-    title: "Youth Ministry Director",
-    church: "Mercy Vineyard Church",
-    location: "Minneapolis, Minnesota",
-    date: "13 Sep 2024",
-    type: "PART TIME",
-  },
-  {
-    title: "Youth and Young Adults Pastor / Director",
-    church: "Miami Vineyard Community Church",
-    location: "Miami, Florida",
-    date: "13 Sep 2024",
-    type: "FULL TIME",
-  },
-  {
-    title: "Lead Pastor",
-    church: "Temple Baptist Church in Swan River",
-    location: "Swan River, Manitoba",
-    date: "12 Sep 2024",
-    type: "FULL TIME",
-  },
-  {
-    title: "Pastor/Minister",
-    church: "Hopewell Associate Reformed Presbyterian Church",
-    location: "Covington, Georgia",
-    date: "12 Sep 2024",
-    type: "FULL TIME",
-  },
-];
-
-const popularCategories = [
-  {
-    name: "Pastor / Senior Pastor",
-    icon: "🙏",
-    count: 180,
-    color: "bg-red-100 text-red-600",
-  },
-  {
-    name: "Children's Ministry",
-    icon: "👨‍👩‍👧‍👦",
-    count: 58,
-    color: "bg-blue-100 text-blue-600",
-  },
-  {
-    name: "Youth & Teen Ministry",
-    icon: "🎉",
-    count: 151,
-    color: "bg-green-100 text-green-600",
-  },
-  {
-    name: "Music & Worship Ministries",
-    icon: "🎵",
-    count: 89,
-    color: "bg-purple-100 text-purple-600",
-  },
-  {
-    name: "Associate Pastor",
-    icon: "👥",
-    count: 214,
-    color: "bg-yellow-100 text-yellow-600",
-  },
-  {
-    name: "Family Ministry",
-    icon: "❤️",
-    count: 24,
-    color: "bg-pink-100 text-pink-600",
-  },
-  {
-    name: "Discipleship Ministry",
-    icon: "📚",
-    count: 111,
-    color: "bg-indigo-100 text-indigo-600",
-  },
-  {
-    name: "Adult Ministry",
-    icon: "🧑‍🤝‍🧑",
-    count: 12,
-    color: "bg-orange-100 text-orange-600",
-  },
-];
-
-const denominations = [
-  { name: "Baptist", color: "bg-red-500" },
-  { name: "Presbyterian", color: "bg-blue-500" },
-  { name: "Methodist", color: "bg-green-500" },
-  { name: "Lutheran", color: "bg-yellow-500" },
-  { name: "Episcopal", color: "bg-purple-500" },
-  { name: "Pentecostal", color: "bg-pink-500" },
-  { name: "Non-Denominational", color: "bg-indigo-500" },
-  { name: "Catholic", color: "bg-orange-500" },
-  { name: "Orthodox", color: "bg-teal-500" },
-  { name: "Evangelical", color: "bg-cyan-500" },
-  { name: "Reformed", color: "bg-lime-500" },
-  { name: "Charismatic", color: "bg-amber-500" },
-];
-
-export default function HomePage() {
+export default function JobBoardPage() {
   const [searchTerm, setSearchTerm] = useState("");
-  const [location, setLocation] = useState("");
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
-      <header className="bg-white shadow-md">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-          <div className="flex items-center">
-            <Image
-              src="/placeholder.svg?height=40&width=40"
-              alt="Red Letter Jobs Logo"
-              className="mr-2"
-              width={10} // Explicit width
-              height={10} 
-            />
-            <span className="text-2xl font-bold text-red-600">
-              Red Letter Jobs
-            </span>
-          </div>
-          <nav className="hidden md:flex space-x-8">
-            <a
-              href="#"
-              className="text-gray-600 hover:text-red-600 font-medium"
-            >
-              Home
-            </a>
-            <a
-              href="#"
-              className="text-gray-600 hover:text-red-600 font-medium"
-            >
-              Find Jobs
-            </a>
-            <a
-              href="#"
-              className="text-gray-600 hover:text-red-600 font-medium"
-            >
-              Post Jobs
-            </a>
-            <a
-              href="#"
-              className="text-gray-600 hover:text-red-600 font-medium"
-            >
-              Pricing
-            </a>
-            <a
-              href="#"
-              className="text-gray-600 hover:text-red-600 font-medium"
-            >
-              Blog
-            </a>
-            <a
-              href="#"
-              className="text-gray-600 hover:text-red-600 font-medium"
-            >
-              Contact
-            </a>
+    <div className="min-h-screen bg-gray-50">
+      {/* Header */}
+      <header className="border-b border-gray-200 bg-white sticky top-0 z-50">
+        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
+          <div className="text-2xl font-bold tracking-wider text-blue-900">aaoewmu</div>
+          <nav className="hidden md:flex gap-8 text-sm font-medium">
+            <a href="#jobs" className="hover:text-blue-700 transition-colors">Jobs</a>
+            <a href="#companies" className="hover:text-blue-700 transition-colors">Companies</a>
+            <a href="#categories" className="hover:text-blue-700 transition-colors">Categories</a>
+            <a href="#resources" className="hover:text-blue-700 transition-colors">Resources</a>
           </nav>
-          <a href="#" className="text-red-600 hover:text-red-800 font-medium">
-            Sign In
-          </a>
+          <div className="flex items-center gap-4">
+            <Button variant="outline" size="sm" className="border-blue-900 text-blue-900 hover:bg-blue-900 hover:text-white">
+              Sign In
+            </Button>
+            <Button size="sm" className="bg-blue-900 hover:bg-blue-800 text-white">
+              Post a Job
+            </Button>
+          </div>
         </div>
       </header>
 
-      <main>
-        <div className="relative bg-gradient-to-r from-blue-500 to-purple-600 overflow-hidden">
-          <div className="absolute inset-0">
-            <img
-              className="w-full h-full object-cover opacity-20"
-              src="/placeholder.svg?height=600&width=1200"
-              alt="Church interior"
-            />
-          </div>
-          <div className="relative max-w-7xl mx-auto py-24 px-4 sm:py-32 sm:px-6 lg:px-8">
-            <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl text-center">
-              Christian job search with a deeper sense of purpose
-            </h1>
-            <p className="mt-6 max-w-3xl mx-auto text-xl text-blue-100 text-center">
-              Find your calling in ministry and make a difference in the world
-              through faith-based employment opportunities.
-            </p>
-            <div className="mt-10">
-              <div className="max-w-xl mx-auto bg-white rounded-lg overflow-hidden md:max-w-3xl shadow-lg">
-                <div className="md:flex">
-                  <div className="p-3 md:w-1/3">
-                    <div className="relative">
-                      <input
-                        type="text"
-                        placeholder="Job Title or Keywords"
-                        className="w-full px-4 py-2 rounded-md border border-gray-300 focus:ring-red-500 focus:border-red-500"
-                        value={searchTerm}
-                        onChange={(e) => setSearchTerm(e.target.value)}
-                      />
-                      <Search className="absolute right-3 top-2.5 h-5 w-5 text-gray-400" />
-                    </div>
-                  </div>
-                  <div className="p-3 md:w-1/3">
-                    <div className="relative">
-                      <input
-                        type="text"
-                        placeholder="Location"
-                        className="w-full px-4 py-2 rounded-md border border-gray-300 focus:ring-red-500 focus:border-red-500"
-                        value={location}
-                        onChange={(e) => setLocation(e.target.value)}
-                      />
-                      <MapPin className="absolute right-3 top-2.5 h-5 w-5 text-gray-400" />
-                    </div>
-                  </div>
-                  <div className="p-3 md:w-1/3">
-                    <button className="w-full bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2">
-                      Search Jobs
-                    </button>
-                  </div>
-                </div>
+      {/* Main Content */}
+      <main className="container mx-auto px-4 py-8">
+        {/* Hero Search Section */}
+        <section className="text-center mb-12">
+          <motion.h1 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-4xl md:text-6xl font-bold text-gray-900 mb-6"
+          >
+            Find Your Dream 
+            <span className="text-blue-900"> Ministry Job</span>
+          </motion.h1>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto"
+          >
+            Connecting churches and Christian organizations with qualified candidates
+          </motion.p>
+
+          {/* Search Bar */}
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="max-w-4xl mx-auto bg-white rounded-2xl shadow-lg p-2 border border-gray-200"
+          >
+            <div className="flex flex-col md:flex-row gap-2">
+              <div className="flex-1 flex items-center gap-3 px-4 py-3">
+                <Search className="w-5 h-5 text-gray-400" />
+                <input
+                  type="text"
+                  placeholder="Search jobs, keywords, or companies..."
+                  className="flex-1 outline-none text-lg"
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                />
               </div>
+              <div className="flex-1 flex items-center gap-3 px-4 py-3 border-l border-gray-200">
+                <MapPin className="w-5 h-5 text-gray-400" />
+                <input
+                  type="text"
+                  placeholder="Location, city, or state..."
+                  className="flex-1 outline-none text-lg"
+                />
+              </div>
+              <Button className="bg-blue-900 hover:bg-blue-800 text-white px-8 py-6 text-lg">
+                Search Jobs
+              </Button>
             </div>
+          </motion.div>
+        </section>
+
+        {/* Recently Posted Jobs Section */}
+        <section id="jobs" className="mb-16">
+          <div className="flex items-center justify-between mb-8">
+            <div className="flex items-center gap-4">
+              <h2 className="text-3xl font-bold text-gray-900">Recently Posted Jobs</h2>
+              <div className="w-16 h-1 bg-blue-900"></div>
+            </div>
+            <Button variant="outline" className="border-blue-900 text-blue-900 hover:bg-blue-900 hover:text-white">
+              View All Jobs <ArrowRight className="w-4 h-4 ml-2" />
+            </Button>
           </div>
-        </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <div className="flex justify-center space-x-4 mb-12">
-            <button className="flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-green-500 hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition duration-150 ease-in-out">
-              <Upload className="w-5 h-5 mr-2" />
-              Upload Your Resume
-            </button>
-            <button className="flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-500 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition duration-150 ease-in-out">
-              <Briefcase className="w-5 h-5 mr-2" />
-              Post a Job
-            </button>
-          </div>
-
-          <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">
-            Recent Church & Pastor Job Opportunities
-          </h2>
-          <p className="text-gray-600 mb-8 text-center italic">
-            "Go ye therefore, and teach all nations, baptizing them in the name
-            of the Father, and of the Son, and of the Holy Ghost."
-          </p>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-            {jobListings.map((job, index) => (
-              <div
-                key={index}
-                className="bg-white shadow-md rounded-lg p-6 hover:shadow-lg transition duration-300 border-l-4 border-red-500"
-              >
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                  {job.title}
-                </h3>
-                <p className="text-red-600 mb-1">{job.church}</p>
-                <div className="flex items-center text-gray-600 mb-2">
-                  <MapPin className="w-4 h-4 mr-1" />
-                  <span>{job.location}</span>
+          {/* Job Cards Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* Job Card 1 - Lifeway */}
+            <motion.div 
+              whileHover={{ scale: 1.02 }}
+              className="bg-white rounded-2xl shadow-md border border-gray-200 overflow-hidden"
+            >
+              <div className="p-6">
+                <div className="flex items-start justify-between mb-4">
+                  <div className="flex items-center gap-3">
+                    <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-700 rounded-lg flex items-center justify-center">
+                      <span className="text-white font-bold text-sm">L</span>
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-lg text-gray-900">Senior Pastor</h3>
+                      <p className="text-gray-600">Lifeway Church</p>
+                    </div>
+                  </div>
+                  <Button variant="ghost" size="sm" className="text-gray-400 hover:text-red-500">
+                    <Heart className="w-5 h-5" />
+                  </Button>
                 </div>
-                <div className="flex items-center text-gray-600 mb-4">
-                  <Calendar className="w-4 h-4 mr-1" />
-                  <span>{job.date}</span>
+                
+                <div className="space-y-3 mb-4">
+                  <div className="flex items-center gap-2 text-gray-600">
+                    <MapPin className="w-4 h-4" />
+                    <span>Nashville, TN</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-gray-600">
+                    <Building2 className="w-4 h-4" />
+                    <span>Full-time</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-gray-600">
+                    <Clock className="w-4 h-4" />
+                    <span>Posted 2 days ago</span>
+                  </div>
                 </div>
-                <div className="flex justify-between items-center">
-                  <span
-                    className={`px-3 py-1 rounded-full text-sm font-semibold ${
-                      job.type === "FULL TIME"
-                        ? "bg-green-100 text-green-800"
-                        : "bg-yellow-100 text-yellow-800"
-                    }`}
-                  >
-                    {job.type}
-                  </span>
-                  <button className="text-red-600 hover:text-red-800 transition duration-150 ease-in-out">
-                    View Details
-                  </button>
+
+                <div className="flex items-center justify-between">
+                  <span className="text-2xl font-bold text-gray-900">$75,000</span>
+                  <Button className="bg-blue-900 hover:bg-blue-800 text-white">
+                    Apply Now
+                  </Button>
                 </div>
               </div>
-            ))}
-          </div>
+            </motion.div>
 
-          <div className="text-center">
-            <button className="px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition duration-150 ease-in-out">
-              Browse All Jobs
-            </button>
-          </div>
+            {/* Job Card 2 */}
+            <motion.div 
+              whileHover={{ scale: 1.02 }}
+              className="bg-white rounded-2xl shadow-md border border-gray-200 overflow-hidden"
+            >
+              <div className="p-6">
+                <div className="flex items-start justify-between mb-4">
+                  <div className="flex items-center gap-3">
+                    <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-green-700 rounded-lg flex items-center justify-center">
+                      <span className="text-white font-bold text-sm">C</span>
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-lg text-gray-900">Worship Director</h3>
+                      <p className="text-gray-600">Community Church</p>
+                    </div>
+                  </div>
+                  <Button variant="ghost" size="sm" className="text-gray-400 hover:text-red-500">
+                    <Heart className="w-5 h-5" />
+                  </Button>
+                </div>
+                
+                <div className="space-y-3 mb-4">
+                  <div className="flex items-center gap-2 text-gray-600">
+                    <MapPin className="w-4 h-4" />
+                    <span>Orlando, FL</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-gray-600">
+                    <Building2 className="w-4 h-4" />
+                    <span>Full-time</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-gray-600">
+                    <Clock className="w-4 h-4" />
+                    <span>Posted 1 day ago</span>
+                  </div>
+                </div>
 
-          <h2 className="text-3xl font-bold text-gray-900 mt-20 mb-6 text-center">
-            Popular Church Jobs & Pastor Jobs
-          </h2>
-          <p className="text-gray-600 mb-8 text-center italic">
-            "And he gave some, apostles; and some, prophets; and some,
-            evangelists; and some, pastors and teachers."
-          </p>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
-            {popularCategories.map((category, index) => (
-              <div
-                key={index}
-                className={`${category.color} rounded-lg p-6 text-center hover:shadow-lg transition duration-300`}
-              >
-                <span className="text-4xl mb-4 block">{category.icon}</span>
-                <h3 className="text-lg font-semibold mb-2">{category.name}</h3>
-                <p className="text-sm">{category.count} Opportunities</p>
+                <div className="flex items-center justify-between">
+                  <span className="text-2xl font-bold text-gray-900">$55,000</span>
+                  <Button className="bg-blue-900 hover:bg-blue-800 text-white">
+                    Apply Now
+                  </Button>
+                </div>
               </div>
-            ))}
+            </motion.div>
+
+            {/* Job Card 3 */}
+            <motion.div 
+              whileHover={{ scale: 1.02 }}
+              className="bg-white rounded-2xl shadow-md border border-gray-200 overflow-hidden"
+            >
+              <div className="p-6">
+                <div className="flex items-start justify-between mb-4">
+                  <div className="flex items-center gap-3">
+                    <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-700 rounded-lg flex items-center justify-center">
+                      <span className="text-white font-bold text-sm">Y</span>
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-lg text-gray-900">Youth Pastor</h3>
+                      <p className="text-gray-600">Youth Ministry Inc</p>
+                    </div>
+                  </div>
+                  <Button variant="ghost" size="sm" className="text-gray-400 hover:text-red-500">
+                    <Heart className="w-5 h-5" />
+                  </Button>
+                </div>
+                
+                <div className="space-y-3 mb-4">
+                  <div className="flex items-center gap-2 text-gray-600">
+                    <MapPin className="w-4 h-4" />
+                    <span>Dallas, TX</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-gray-600">
+                    <Building2 className="w-4 h-4" />
+                    <span>Full-time</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-gray-600">
+                    <Clock className="w-4 h-4" />
+                    <span>Posted 3 hours ago</span>
+                  </div>
+                </div>
+
+                <div className="flex items-center justify-between">
+                  <span className="text-2xl font-bold text-gray-900">$48,000</span>
+                  <Button className="bg-blue-900 hover:bg-blue-800 text-white">
+                    Apply Now
+                  </Button>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Popular Categories Section */}
+        <section id="categories" className="mb-16">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">POPULAR CATEGORIES</h2>
+            <p className="text-gray-600 text-lg">Browse jobs by ministry focus area</p>
           </div>
 
-          <div className="text-center">
-            <button className="px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition duration-150 ease-in-out">
-              Browse All Categories
-            </button>
-          </div>
-
-          <h2 className="text-3xl font-bold text-gray-900 mt-20 mb-6 text-center">
-            Find by Denomination
-          </h2>
-          <p className="text-gray-600 mb-8 text-center">
-            Explore opportunities across various Christian denominations.
-          </p>
-
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-12">
-            {denominations.map((denomination, index) => (
-              <a
-                key={index}
-                href="#"
-                className={`${denomination.color} text-white rounded-lg p-4 text-center hover:opacity-90 transition duration-300`}
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+            {[
+              { name: "Pastoral", count: "234", color: "from-blue-500 to-blue-700" },
+              { name: "Worship", count: "189", color: "from-green-500 to-green-700" },
+              { name: "Youth", count: "156", color: "from-purple-500 to-purple-700" },
+              { name: "Children", count: "143", color: "from-pink-500 to-pink-700" },
+              { name: "Administration", count: "132", color: "from-orange-500 to-orange-700" },
+              { name: "Missions", count: "98", color: "from-teal-500 to-teal-700" },
+              { name: "Counseling", count: "87", color: "from-indigo-500 to-indigo-700" },
+              { name: "Education", count: "76", color: "from-red-500 to-red-700" },
+              { name: "Media", count: "65", color: "from-yellow-500 to-yellow-600" },
+              { name: "Facilities", count: "54", color: "from-gray-500 to-gray-700" },
+              { name: "Outreach", count: "43", color: "from-cyan-500 to-cyan-700" },
+              { name: "Senior Care", count: "32", color: "from-amber-500 to-amber-700" },
+            ].map((category, index) => (
+              <motion.div
+                key={category.name}
+                whileHover={{ scale: 1.05 }}
+                className="bg-white rounded-xl shadow-sm border border-gray-200 p-4 text-center cursor-pointer hover:shadow-md transition-shadow"
               >
-                {denomination.name}
-              </a>
+                <div className={`w-12 h-12 mx-auto mb-3 rounded-lg bg-gradient-to-br ${category.color} flex items-center justify-center`}>
+                  <span className="text-white font-bold text-sm">{category.name[0]}</span>
+                </div>
+                <h3 className="font-semibold text-gray-900 mb-1">{category.name}</h3>
+                <p className="text-sm text-gray-600">{category.count} jobs</p>
+              </motion.div>
             ))}
           </div>
+        </section>
 
-          <div className="text-center">
-            <button className="px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition duration-150 ease-in-out">
-              Browse All Denominations
-            </button>
-          </div>
+        {/* CTA Sections */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+          {/* Create Account CTA */}
+          <motion.div 
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            className="bg-gradient-to-br from-blue-900 to-blue-800 rounded-2xl p-8 text-white"
+          >
+            <h3 className="text-2xl font-bold mb-4">Ready to get started? Create an account.</h3>
+            <p className="text-blue-100 mb-6">
+              Join thousands of churches and candidates finding their perfect match through our platform.
+            </p>
+            <div className="space-y-4">
+              <Button className="w-full bg-white text-blue-900 hover:bg-gray-100 text-lg py-6">
+                Sign Up Free
+              </Button>
+              <Button variant="outline" className="w-full border-white text-white hover:bg-white hover:text-blue-900">
+                Learn More
+              </Button>
+            </div>
+          </motion.div>
+
+          {/* Consultation CTA */}
+          <motion.div 
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            className="bg-gradient-to-br from-green-600 to-green-700 rounded-2xl p-8 text-white"
+          >
+            <h3 className="text-2xl font-bold mb-4">Get your free consultation</h3>
+            <p className="text-green-100 mb-6">
+              Speak with our ministry placement specialists about your specific needs and goals.
+            </p>
+            <div className="space-y-4">
+              <Button className="w-full bg-white text-green-700 hover:bg-gray-100 text-lg py-6">
+                Schedule Now
+              </Button>
+              <Button variant="outline" className="w-full border-white text-white hover:bg-white hover:text-green-700">
+                Contact Us
+              </Button>
+            </div>
+          </motion.div>
         </div>
+
+        {/* Why Churches Trust Us */}
+        <section className="mb-16">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Why Churches Trust Us</h2>
+            <p className="text-gray-600 text-lg">Trusted by thousands of churches nationwide</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <motion.div 
+              whileHover={{ scale: 1.05 }}
+              className="text-center p-6"
+            >
+              <div className="w-16 h-16 mx-auto mb-4 bg-blue-100 rounded-full flex items-center justify-center">
+                <Users className="w-8 h-8 text-blue-900" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">Large Network</h3>
+              <p className="text-gray-600">
+                Access to thousands of qualified ministry professionals across all denominations and roles.
+              </p>
+            </motion.div>
+
+            <motion.div 
+              whileHover={{ scale: 1.05 }}
+              className="text-center p-6"
+            >
+              <div className="w-16 h-16 mx-auto mb-4 bg-green-100 rounded-full flex items-center justify-center">
+                <Shield className="w-8 h-8 text-green-900" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">Verified Candidates</h3>
+              <p className="text-gray-600">
+                All candidates are thoroughly vetted and reference-checked to ensure quality matches.
+              </p>
+            </motion.div>
+
+            <motion.div 
+              whileHover={{ scale: 1.05 }}
+              className="text-center p-6"
+            >
+              <div className="w-16 h-16 mx-auto mb-4 bg-purple-100 rounded-full flex items-center justify-center">
+                <Star className="w-8 h-8 text-purple-900" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">Proven Success</h3>
+              <p className="text-gray-600">
+                95% of churches find their ideal candidate within 90 days using our platform.
+              </p>
+            </motion.div>
+          </div>
+        </section>
       </main>
 
-      <footer className="bg-gray-900 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div className="col-span-2">
-              <Image
-                src="/placeholder.svg?height=40&width=40"
-                alt="Red Letter Jobs Logo"
-                className="mb-4"
-                width={10} // Explicit width
-                height={10}
-              />
-              <p className="text-sm mb-4">
-                Red Letter Jobs creates and delivers the best hiring and job
-                search tools for connecting people of faith with ministry jobs.
-                We strive to equip churches and Christian organizations to hire
-                the best candidates and help job seekers find meaningful
-                employment in realizing their call.
+      {/* Footer */}
+      <footer className="bg-gray-900 text-white py-12">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+            <div>
+              <h3 className="text-2xl font-bold mb-4 text-white">aaoewmu</h3>
+              <p className="text-gray-400">
+                Connecting churches with qualified ministry professionals since 2015.
               </p>
-              <button className="px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition duration-150 ease-in-out">
-                Get Started
-              </button>
             </div>
             <div>
-              <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
-              <ul className="space-y-2">
-                <li>
-                  <a
-                    href="#"
-                    className="hover:text-red-400 transition duration-150 ease-in-out"
-                  >
-                    About Us
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="hover:text-red-400 transition duration-150 ease-in-out"
-                  >
-                    Find Jobs
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="hover:text-red-400 transition duration-150 ease-in-out"
-                  >
-                    Post a Job
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="hover:text-red-400 transition duration-150 ease-in-out"
-                  >
-                    Pricing
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="hover:text-red-400 transition duration-150 ease-in-out"
-                  >
-                    Contact Us
-                  </a>
-                </li>
+              <h4 className="font-semibold mb-3 text-white">For Job Seekers</h4>
+              <ul className="space-y-2 text-gray-400">
+                <li><a href="#" className="hover:text-white transition-colors">Browse Jobs</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Create Profile</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Career Resources</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Application Tips</a></li>
               </ul>
             </div>
             <div>
-              <h3 className="text-lg font-semibold mb-4">Legal</h3>
-              <ul className="space-y-2">
-                <li>
-                  <a
-                    href="#"
-                    className="hover:text-red-400 transition duration-150 ease-in-out"
-                  >
-                    Privacy Policy
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="hover:text-red-400 transition duration-150 ease-in-out"
-                  >
-                    Terms of Service
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="hover:text-red-400 transition duration-150 ease-in-out"
-                  >
-                    Cookie Policy
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="hover:text-red-400 transition duration-150 ease-in-out"
-                  >
-                    Refund Policy
-                  </a>
-                </li>
+              <h4 className="font-semibold mb-3 text-white">For Churches</h4>
+              <ul className="space-y-2 text-gray-400">
+                <li><a href="#" className="hover:text-white transition-colors">Post a Job</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Browse Candidates</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Pricing</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Success Stories</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-semibold mb-3 text-white">Support</h4>
+              <ul className="space-y-2 text-gray-400">
+                <li><a href="#" className="hover:text-white transition-colors">Help Center</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Contact Us</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Privacy Policy</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Terms of Service</a></li>
               </ul>
             </div>
           </div>
-          <div className="mt-8 pt-8 border-t border-gray-700 flex flex-col md:flex-row justify-between items-center">
-            <p className="text-sm mb-4 md:mb-0">
-              Red Letter Jobs © 2024. All Rights Reserved
-            </p>
-            <div className="flex space-x-4">
-              <a
-                href="#"
-                className="text-gray-400 hover:text-white transition duration-150 ease-in-out"
-              >
-                <Facebook className="w-6 h-6" />
-              </a>
-              <a
-                href="#"
-                className="text-gray-400 hover:text-white transition duration-150 ease-in-out"
-              >
-                <Twitter className="w-6 h-6" />
-              </a>
-              <a
-                href="#"
-                className="text-gray-400 hover:text-white transition duration-150 ease-in-out"
-              >
-                <Linkedin className="w-6 h-6" />
-              </a>
-              <a
-                href="#"
-                className="text-gray-400 hover:text-white transition duration-150 ease-in-out"
-              >
-                <Instagram className="w-6 h-6" />
-              </a>
-            </div>
+          
+          <div className="border-t border-gray-800 pt-8 text-center text-gray-400">
+            <p>© 2024 aaoewmu Ministry Jobs. All rights reserved.</p>
           </div>
         </div>
       </footer>
